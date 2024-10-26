@@ -1,11 +1,15 @@
 import spacy
 from pymongo import MongoClient
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
 
 nlp = spacy.load("en_core_web_sm")
 
-client = MongoClient("mongodb://localhost:27017/")
-db = client["fatec"]
-collection = db["entities"]
+client = MongoClient(os.getenv("DB_HOST"))
+db = client[os.getenv("DB_NAME")]
+collection = db[os.getenv("DB_COLLECTION")]
 
 def process_and_store_entities(text):
     doc = nlp(text)
