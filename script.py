@@ -1,6 +1,5 @@
 import requests
 from bs4 import BeautifulSoup
-from pprint import pprint
 
 def get_text_from_uol():
     url = 'https://educacao.uol.com.br/bancoderedacoes/redacoes/o-progresso-da-tecnologia.htm'
@@ -15,9 +14,13 @@ def get_text_from_uol():
         return text
     else:
         print(f"Failed to retrieve page. Status code: {response.status_code}")
+        
         return None
 
 if __name__ == '__main__':
     text = get_text_from_uol()
     if text:
-        print(text)
+        with open("output.txt", "w") as file:
+            file.write(text)
+
+        print("Text saved to output.txt")
