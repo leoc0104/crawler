@@ -11,7 +11,10 @@ class EntityController:
         return self.model.read_all()
 
     def show(self, query = {}):
-        return self.model.read(query)
+        try:
+            return self.model.read(query)
+        except Exception:
+            return {"error": 'Not found'}, 404
 
     def update(self, query, new_values):
         return self.model.update(query, new_values)

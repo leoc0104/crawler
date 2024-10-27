@@ -1,5 +1,6 @@
 from pymongo import MongoClient
 from dotenv import load_dotenv
+from bson import ObjectId
 import os
 
 load_dotenv()
@@ -13,15 +14,21 @@ class Entity:
     def create(self, data):
         return self.collection.insert_one(data)
 
-    def read(self, query={}):
-        return list(self.collection.find(query))
+    def read(self, query = {}):
+        entity = self.collection.find_one({"_id": ObjectId(query)})
+
+        entity['_id'] = str(entity['_id'])
+
+        return entity
     
     def read_all(self):
         words = self.collection.find()
         result = []
+
         for word in words:
             word['_id'] = str(word['_id'])  # Converte ObjectId para string
             result.append(word)
+
         return result
 
     def update(self, query, new_values):
