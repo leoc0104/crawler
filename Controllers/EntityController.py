@@ -27,7 +27,7 @@ class EntityController:
 
         if result.matched_count == 0:
             return {"error": "Entity has not been found"}, 404
-        
+
         return {"message": "Entity updated successfully"}, 200
 
     def destroy(self, id):
@@ -37,4 +37,3 @@ class EntityController:
             return {"error": "Entity has not been found"}, 404
         
         return {"message": "Entity deleted successfully"}, 200
-

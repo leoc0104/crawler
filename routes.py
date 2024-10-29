@@ -23,6 +23,7 @@ def get_entity(id):
 @app.route('/entities/<id>', methods = ['PUT'])
 def update_entity(id):
     new_values = request.get_json()
+    
     response, status_code = controller.update(id, new_values)
     
     return jsonify(response), status_code
