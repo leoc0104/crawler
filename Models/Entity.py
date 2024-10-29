@@ -14,8 +14,8 @@ class Entity:
     def create(self, data):
         return self.collection.insert_one(data)
 
-    def read(self, query = {}):
-        entity = self.collection.find_one({"_id": ObjectId(query)})
+    def read(self, id):
+        entity = self.collection.find_one({"_id": ObjectId(id)})
 
         entity['_id'] = str(entity['_id'])
 
@@ -26,13 +26,17 @@ class Entity:
         result = []
 
         for word in words:
-            word['_id'] = str(word['_id'])  # Converte ObjectId para string
+            word['_id'] = str(word['_id'])
             result.append(word)
 
         return result
 
-    def update(self, query, new_values):
-        return self.collection.update_one(query, {"$set": new_values})
+    def update(self, id, new_values):
+        id = {"_id": ObjectId(id)}
 
-    def delete(self, query):
-        return self.collection.delete_one(query)
+        return self.collection.update_one(id, {"$set": new_values})
+
+    def delete(self, id):
+        id = {"_id": ObjectId(id)}
+
+        return self.collection.delete_one(id)
