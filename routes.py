@@ -16,7 +16,6 @@ def get_entities():
 
 @app.route('/entities/<id>', methods = ['GET'])
 def get_entity(id):
-    print(controller.show(id))
     response, status_code = controller.show(id)
     
     return jsonify(response), status_code

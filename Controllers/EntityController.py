@@ -33,8 +33,6 @@ class EntityController:
     def destroy(self, id):
         result = self.model.delete(id)
 
-        print(result.deleted_count)
-
         if result.deleted_count == 0:
             return {"error": "Entity has not been found"}, 404
         
