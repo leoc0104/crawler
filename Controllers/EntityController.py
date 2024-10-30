@@ -23,17 +23,26 @@ class EntityController:
             return {"error": "Entity has not been found"}, 404
 
     def update(self, id, new_values):
-        result = self.model.update(id, new_values)
+        try:
+            result = self.model.update(id, new_values)
 
-        if result.matched_count == 0:
+            print(result.matched_count)
+
+            if result.matched_count > 0:
+                return {"message": "Entity updated successfully"}, 200
+            else:
+                return {"error": "Entity has not been found"}, 404
+            
+        except:
             return {"error": "Entity has not been found"}, 404
-
-        return {"message": "Entity updated successfully"}, 200
 
     def destroy(self, id):
-        result = self.model.delete(id)
+        try:
+            result = self.model.delete(id)
 
-        if result.deleted_count == 0:
+            if result and result.deleted_count > 0:
+                return {"message": "Entity deleted successfully"}, 200
+            else:
+                return {"error": "Entity has not been found"}, 404
+        except:
             return {"error": "Entity has not been found"}, 404
-        
-        return {"message": "Entity deleted successfully"}, 200
