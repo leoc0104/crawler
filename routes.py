@@ -1,7 +1,10 @@
 from flask import Flask, request, jsonify
 from Controllers.EntityController import EntityController
+from flask_cors import CORS
 
 app = Flask(__name__)
+CORS(app)
+
 controller = EntityController()
 
 @app.route('/entities', methods = ['POST'])
