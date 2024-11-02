@@ -1,0 +1,7 @@
+beautifulsoup4
+requests
+spacy
+pymongo
+python-dotenv
+flask
+flask-cors
