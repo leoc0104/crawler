@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Crawler, NER e manipulação de dados</h1>
+
+        <h3>CREATE</h3>
+
+        <form id="add-entity-form">
+            <input type="text" id="text" placeholder="Insira a entidade" required>
+            <input type="text" id="label" placeholder="Insira o rótulo" required>
+            <button type="submit">Inserir</button>
+        </form>
+
+        <h3>READ</h3>
+
+        <form id="show-entity-form">
+            <input type="text" id="show-id" placeholder="ID da entidade que deseja visualizar" required>
+            <button type="submit">Exibir palavra</button>
+        </form>
+
+        <div id="show-entity-list"></div>
+        
+        <button id="list-entities">Listar todas as entidades</button>
+        <div id="entity-list"></div>
+
+        <h3>UPDATE</h3>
+
+        <form id="update-entity-form">
+            <input type="text" id="update-id" placeholder="ID da entidade que deseja editar" required>
+            <input type="text" id="new-text" placeholder="Nova entidade" required>
+            <input type="text" id="new-label" placeholder="Novo rótulo" required>
+            <button type="submit">Atualizar</button>
+        </form>
+
+        <h3>DELETE</h3>
+
+        <form id="delete-entity-form">
+            <input type="text" id="delete-id" placeholder="ID da entidade para remover" required>
+            <button type="submit">Remover</button>
+        </form>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
