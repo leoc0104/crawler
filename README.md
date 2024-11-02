@@ -46,7 +46,7 @@ Este é um projeto de *crawler* em Python com arquitetura MVC, que extrai e mani
 
 1. Clone o repositório:
    ```bash
-   git clone <https://github.com/leoc0104/crawler.git>
+   git clone https://github.com/leoc0104/crawler.git
    ```
 2. Entre no diretório do projeto:
    ```bash
