@@ -5,3 +5,4 @@ pymongo
 python-dotenv
 flask
 flask-cors
+spacy[en_core_web_sm]

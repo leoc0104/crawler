@@ -14,10 +14,10 @@ def get_text_from_uol():
             essay_text = essay_div.get_text()
             return essay_text
         else:
-            print("Redação não encontrada na página.")
+            print("Essay not found on the page.")
             return None
     else:
-        print(f"Falha ao vasculhar a página. Código: {response.status_code}")
+        print(f"Failed to scrape the page. Status code: {response.status_code}")
         return None
 
 if __name__ == '__main__':
@@ -26,4 +26,4 @@ if __name__ == '__main__':
         with open("output.txt", "w") as file:
             file.write(text)
 
-        print("Redação salva em output.txt")
+        print("Essay saved in output.txt")
